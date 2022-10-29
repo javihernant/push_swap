@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instr.c                                            :+:      :+:    :+:   */
+/*   hp_instr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:32:25 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/28 21:05:58 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:09:01 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,24 @@ int	ft_push(int num, t_array *st)
 	((int *)st->arr)[st->top] = num;
 	st->top++;
 	return (0);
+}
+
+int	ft_pop(t_array *st)
+{
+	st->top--;
+	return (((int *)st->arr)[st->top]);
+}
+
+void	ft_print_stack(t_array *st)
+{
+	int		*arr;
+	size_t	i;
+
+	arr = st->arr;
+	i = st->top;
+	while (i > 0)
+	{
+		ft_printf("%d\n", arr[i - 1]);
+		i--;
+	}
 }
