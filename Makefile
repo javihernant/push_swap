@@ -5,6 +5,7 @@ SRC:=checkarg.c \
 	 ft_push_all_b.c \
 	 ft_push_swap.c \
 	 st_instr.c \
+	 ft_sort_a.c \
 	 main.c
 
 SRC:=$(addprefix src/,$(SRC))
@@ -13,14 +14,15 @@ OBJ=$(SRC:.c=.o)
 IFLAGS=-I./libft/include -I./include
 LFLAGS=-L./libft
 LIBS=-lft
+DBG=-g
 
 all: $(NAME)
 
 $(NAME): libft $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) -o $(NAME) $(LIBS)
+	$(CC) $(LFLAGS) $(OBJ) -o $(NAME) $(LIBS) $(DBG)
 
 %.o:%.c
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@ $(DBG)
 
 libft:
 	$(MAKE) -C ./libft
