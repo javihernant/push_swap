@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 12:45:53 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 14:51:11 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:53:24 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_sort_a(t_array *sta)
 	int	i;
 	int	swap;
 
-	if (sta->top <= 1)
+	if (sta->top != 3)
 		return (0);
 	max = ft_max_idx(sta);
 	last = ((int *)sta->arr)[max];

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_all_b.c                                    :+:      :+:    :+:   */
+/*   ft_push_optimal_a.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 17:56:04 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 18:59:47 by jahernan         ###   ########.fr       */
+/*   Created: 2022/10/30 17:37:48 by jahernan          #+#    #+#             */
+/*   Updated: 2022/10/30 20:13:21 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Checks from bottom to top that a is in order. If more than 3 are sorted
- * leave them in A and send everything else to B. Else keep only 3 (or less if
- * less than 3 elements) */
-int	ft_push_all_b(t_array *stb, t_array *sta)
+int	ft_push_optimal_a(t_array *sta, t_array *stb)
 {
-	while (sta->top > 3)
+	size_t	i;
+	int		exec[NUM_INSTR];
+	int		exec_tmp[NUM_INSTR];
+
+	if (stb->top < 1)
+		return (0);
+	ft_calc_instrs(sta, stb, 0, exec);
+	i = 1;
+	while (i < stb->top)
 	{
-		ft_pb(stb, sta);
+		//ft_calc_instrs(sta, stb, i, exec_tmp);
+		//ft_save_if_better(exec, exec_tmp);
+		i++;
 	}
+	//ft_exec(exec);
 	return (0);
 }

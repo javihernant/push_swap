@@ -6,6 +6,9 @@ SRC:=checkarg.c \
 	 ft_push_swap.c \
 	 st_instr.c \
 	 ft_sort_a.c \
+	 ft_push_optimal_a.c \
+	 ft_calc_instrs.c \
+	 ft_calc_instrs_a.c \
 	 main.c
 
 SRC:=$(addprefix src/,$(SRC))
