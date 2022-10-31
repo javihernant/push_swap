@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:32:25 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/31 20:08:39 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/01 00:45:00 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_rotate(t_array *s)
 		tmp2 = ((int *)s->arr)[i];
 		((int *)s->arr)[i] = tmp1;
 		tmp1 = tmp2;
-		i--;
+		i++;
 	}
 }
 
