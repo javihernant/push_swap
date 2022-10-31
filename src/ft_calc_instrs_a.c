@@ -6,13 +6,14 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 19:40:46 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 21:07:28 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/31 18:23:48 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	int	ft_idx2move(t_array *sta, int elem2push)
+/* find element that should be shifted to the top */
+static	int	ft_find_elem2move(t_array *sta, int elem2push)
 {
 	size_t	i;
 	int		idx;
@@ -34,6 +35,8 @@ static	int	ft_idx2move(t_array *sta, int elem2push)
 		}
 		i++;
 	}
+	if (idx == -1)
+		idx = ft_find_min(sta);
 	return (idx);
 }
 
@@ -41,24 +44,21 @@ void	ft_calc_instrs_a(t_array *sta, int elem2push, int *exec)
 {
 	int	idx;	
 	int	go_up;
+	int	instr;
 	int	c;
 
-	idx = ft_idx2move(sta, elem2push);
-	if (idx != -1)
+	idx = ft_find_elem2move(sta, elem2push);
+	go_up = ft_is_above(idx, sta->size);
+	if (go_up)
 	{
-		go_up = ft_is_above(idx, sta->size);
-		c = 0;
-		if (go_up)
-		{
-			c = sta->top - (idx + 1);
-			while (c--)
-				exec[I_RA]++;
-		}
-		else
-		{
-			c = idx;
-			while (c--)
-				exec[I_RRA]++;
-		}
+		instr = I_RA;
+		c = sta->top - (idx + 1);
 	}
+	else
+	{
+		instr = I_RRA;
+		c = idx + 1;
+	}
+	while (c--)
+		exec[instr]++;
 }

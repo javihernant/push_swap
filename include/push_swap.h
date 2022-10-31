@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 20:17:37 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/31 17:43:44 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		ft_sort_a(t_array *sta);
 void	ft_print_stack(t_array *st);
 void	ft_show_stacks(t_array *sta, t_array *stb);
 int		ft_is_above(size_t i, size_t size);
+int		ft_find_min(t_array *arr);
+int		ft_find_max(t_array *arr);
 int		ft_checkarg(char *str);
 void	ft_error(void);
 int		ft_pb(t_array *stb, t_array *sta);
