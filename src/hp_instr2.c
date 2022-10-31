@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:41:36 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/31 17:46:19 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:29:19 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_show_stacks(t_array *sta, t_array *stb)
 
 /* returns true (1) if idx corresponds to an element in the upper half of
  * an array */
-int	ft_is_above(size_t idx, size_t size)
+int	ft_is_above(size_t idx, size_t len)
 {
-	return (idx < ((size - 1) / 2) + 1);
+	return (idx >= len / 2);
 }
 
 /* find min value and return its index */

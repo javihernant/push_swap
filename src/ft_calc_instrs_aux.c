@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 19:40:46 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/31 18:23:48 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/10/31 23:42:21 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_calc_instrs_a(t_array *sta, int elem2push, int *exec)
 	int	c;
 
 	idx = ft_find_elem2move(sta, elem2push);
-	go_up = ft_is_above(idx, sta->size);
+	go_up = ft_is_above(idx, sta->top);
 	if (go_up)
 	{
 		instr = I_RA;
@@ -57,6 +57,29 @@ void	ft_calc_instrs_a(t_array *sta, int elem2push, int *exec)
 	else
 	{
 		instr = I_RRA;
+		c = idx + 1;
+	}
+	while (c--)
+		exec[instr]++;
+}
+
+void	ft_calc_instrs_b(int idx, size_t top, int *exec)
+{
+	int	go_up;
+	int	instr;
+	int	c;
+
+	if (top <= 1)
+		return ;
+	go_up = ft_is_above(idx, top);
+	if (go_up)
+	{
+		instr = I_RB;
+		c = top - (idx + 1);
+	}
+	else
+	{
+		instr = I_RRB;
 		c = idx + 1;
 	}
 	while (c--)

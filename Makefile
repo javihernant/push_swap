@@ -2,13 +2,16 @@ NAME:=push_swap
 SRC:=checkarg.c \
 	 hp_instr.c \
 	 hp_instr2.c \
+	 hp_instr3.c \
 	 ft_push_all_b.c \
 	 ft_push_swap.c \
 	 st_instr.c \
+	 st_instr2.c \
+	 st_instr3.c \
 	 ft_sort_a.c \
 	 ft_push_optimal_a.c \
 	 ft_calc_instrs.c \
-	 ft_calc_instrs_a.c \
+	 ft_calc_instrs_aux.c \
 	 main.c
 
 SRC:=$(addprefix src/,$(SRC))
