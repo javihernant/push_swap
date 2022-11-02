@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_a.c                                        :+:      :+:    :+:   */
+/*   sort_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 12:45:53 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/31 18:24:15 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/02 22:27:47 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,28 @@ int	ft_sort_a(t_array *sta)
 	if (swap)
 		ft_sa(sta);
 	return (0);
+}
+
+int	ft_sort_a_final(t_array *sta)
+{
+	int	exec[NUM_INSTR];
+	int	instr;
+	int	idx;
+	int	c;
+
+	ft_init_instrs(exec);
+	idx = ft_find_min(sta);
+	if (ft_is_above(idx, sta->top))
+	{
+		instr = I_RA;
+		c = sta->top - (idx + 1);
+	}
+	else
+	{
+		instr = I_RRA;
+		c = idx + 1;
+	}
+	while (c--)
+		exec[instr]++;
+	return (ft_exec_all(exec, sta, NULL));
 }

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:35:59 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 19:00:29 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/02 13:45:52 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_push_swap(t_array *sta, t_array *stb)
 		if (ft_push_optimal_a(sta, stb) != 0)
 			return (1);
 	}
-	//ft_a_final_sort(sta);
+	ft_sort_a_final(sta);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/29 20:57:23 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:29:52 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_check_and_push(char **args, int i, t_array *sta)
 {
 	int	num;
 
-	if (ft_checkarg(args[i]) != 0)
+	if (ft_checkarg(args[i], sta) != 0)
 	{
 		ft_arr_free(sta);
 		ft_error();
@@ -92,9 +92,7 @@ int	main(int argc, char *argv[])
 		ft_arr_free(&stb);
 		return (1);
 	}
-	ft_show_stacks(&sta, &stb);
 	ft_push_swap(&sta, &stb);
-	ft_show_stacks(&sta, &stb);
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
 }

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 17:37:48 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/31 23:59:00 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:43:17 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ int	ft_push_optimal_a(t_array *sta, t_array *stb)
 {
 	size_t	i;
 	int		exec[NUM_INSTR];
-	//int		exec_tmp[NUM_INSTR];
+	int		exec_tmp[NUM_INSTR];
 	if (stb->top == 0)
 		return (0);
 	ft_calc_instrs(sta, stb, 0, exec);
 	i = 1;
 	while (i < stb->top)
 	{
-		//ft_calc_instrs(sta, stb, i, exec_tmp);
-		//ft_save_if_better(exec, exec_tmp);
+		ft_calc_instrs(sta, stb, i, exec_tmp);
+		ft_save_if_better(exec, exec_tmp);
 		i++;
 	}
 	ft_exec_all(exec, sta, stb);

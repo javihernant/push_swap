@@ -8,10 +8,11 @@ SRC:=checkarg.c \
 	 st_instr.c \
 	 st_instr2.c \
 	 st_instr3.c \
-	 ft_sort_a.c \
+	 sort_a.c \
 	 ft_push_optimal_a.c \
 	 ft_calc_instrs.c \
 	 ft_calc_instrs_aux.c \
+	 ft_optimize.c \
 	 main.c
 
 SRC:=$(addprefix src/,$(SRC))

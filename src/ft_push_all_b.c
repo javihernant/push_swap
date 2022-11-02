@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:56:04 by jahernan          #+#    #+#             */
-/*   Updated: 2022/10/30 18:59:47 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/02 19:07:13 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,26 @@
  * less than 3 elements) */
 int	ft_push_all_b(t_array *stb, t_array *sta)
 {
-	while (sta->top > 3)
+	size_t	keep;
+	size_t	i;
+	int		tmp;
+	int		*arr;
+
+	if (sta->top <= 3)
+		return (0);
+	arr = sta->arr;
+	keep = 3;
+	i = 1;
+	tmp = arr[0];
+	while (i < sta->top)
 	{
-		ft_pb(stb, sta);
+		if (arr[i] > tmp)
+			break ;
+		i++;
 	}
+	if (i > keep)
+		keep = i;
+	while (sta->top > keep)
+		ft_pb(stb, sta);
 	return (0);
 }
