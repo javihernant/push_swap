@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/02 19:29:52 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:22:05 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static int	init_vars(int argc, t_array *sta, t_array *stb)
 static void	ft_2dfree(char **strs)
 {
 	char	**next;
+	char	**aux;
 
-	while (*strs != NULL)
+	aux = strs;
+	while (*aux != NULL)
 	{
-		next = strs + 1;
-		free(*strs);
-		strs = next;
+		next = aux + 1;
+		free(*aux);
+		aux = next;
 	}
 	free(strs);
 }

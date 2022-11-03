@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/02 21:22:06 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/03 18:08:58 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_show_stacks(t_array *sta, t_array *stb);
 int		ft_is_above(size_t i, size_t len);
 int		ft_find_min(t_array *arr);
 int		ft_find_max(t_array *arr);
+int		ft_is_repeated(int val, t_array *st);
+int		ft_count_digs(int num);
 int		ft_checkarg(char *str, t_array *sta);
 void	ft_error(void);
 int		ft_pb(t_array *stb, t_array *sta);

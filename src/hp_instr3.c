@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 20:04:58 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/02 19:57:22 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/03 18:00:52 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,4 @@ int	ft_exec_all(int *exec, t_array *sta, t_array *stb)
 		instr++;
 	}
 	return (0);
-}
-
-void	ft_error(void)
-{
-	ft_printf("Error!\n");
 }
