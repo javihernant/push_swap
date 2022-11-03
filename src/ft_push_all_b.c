@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:56:04 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/02 19:07:13 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:25:14 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_push_all_b(t_array *stb, t_array *sta)
 	{
 		if (arr[i] > tmp)
 			break ;
+		tmp = arr[i];
 		i++;
 	}
 	if (i > keep)
