@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/03 17:22:05 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/03 19:53:33 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static int	ft_fill_a(t_array *sta, char *argv[], int argc)
 				return (1);
 			i--;
 		}
+		ft_2dfree(args);
 	}
 	return (0);
 }

@@ -23,11 +23,12 @@ IFLAGS=-I./libft/include -I./include
 LFLAGS=-L./libft
 LIBS=-lft
 DBG=-g
+CFLAGS=-Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): libft $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) -o $(NAME) $(LIBS) $(DBG)
+	$(CC) $(CFLAGS) $(LFLAGS) $(OBJ) -o $(NAME) $(LIBS) $(DBG)
 
 %.o:%.c
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@ $(DBG)
