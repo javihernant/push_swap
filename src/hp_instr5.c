@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hp_instr5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 13:55:15 by jahernan         ###   ########.fr       */
+/*   Created: 2022/11/04 13:52:53 by jahernan          #+#    #+#             */
+/*   Updated: 2022/11/04 13:53:07 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_2dfree(char **strs)
 {
-	t_array	sta;
-	t_array	stb;
+	char	**next;
+	char	**aux;
 
-	if (init_stacks(argc, &sta, &stb) != 0)
-		return (1);
-	if (ft_fill_a(&sta, argv, argc) != 0)
+	aux = strs;
+	while (*aux != NULL)
 	{
-		ft_error();
-		ft_arr_free(&stb);
-		return (1);
+		next = aux + 1;
+		free(*aux);
+		aux = next;
 	}
-	ft_push_swap(&sta, &stb);
-	ft_arr_free(&sta);
-	ft_arr_free(&stb);
+	free(strs);
 }

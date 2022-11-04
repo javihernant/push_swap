@@ -4,6 +4,8 @@ SRC:=checkarg.c \
 	 hp_instr2.c \
 	 hp_instr3.c \
 	 hp_instr4.c \
+	 hp_instr5.c \
+	 ft_fill_a.c \
 	 ft_push_all_b.c \
 	 ft_push_swap.c \
 	 st_instr.c \

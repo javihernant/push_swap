@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 17:56:04 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/03 21:25:14 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:00:15 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	ft_push_all_b(t_array *stb, t_array *sta)
 	if (i > keep)
 		keep = i;
 	while (sta->top > keep)
-		ft_pb(stb, sta);
+		ft_pb(stb, sta, 1);
 	return (0);
 }

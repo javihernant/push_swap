@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 20:04:58 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/03 18:00:52 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:56:09 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static int	ft_exec_b(int instr, t_array *stb)
 
 	rc = 0;
 	if (instr == I_SB)
-		ft_sb(stb);
+		ft_sb(stb, 1);
 	else if (instr == I_RB)
-		ft_rb(stb);
+		ft_rb(stb, 1);
 	else if (instr == I_RRB)
-		ft_rrb(stb);
+		ft_rrb(stb, 1);
 	return (rc);
 }
 
@@ -46,11 +46,11 @@ static int	ft_exec_a(int instr, t_array *sta)
 
 	rc = 0;
 	if (instr == I_SA)
-		ft_sa(sta);
+		ft_sa(sta, 1);
 	else if (instr == I_RA)
-		ft_ra(sta);
+		ft_ra(sta, 1);
 	else if (instr == I_RRA)
-		ft_rra(sta);
+		ft_rra(sta, 1);
 	return (rc);
 }
 
@@ -61,18 +61,18 @@ static int	ft_exec_ab(int instr, t_array *sta, t_array *stb)
 	rc = 0;
 	if (instr == I_PB)
 	{
-		rc = ft_pb(stb, sta);
+		rc = ft_pb(stb, sta, 1);
 	}
 	if (instr == I_PA)
 	{
-		rc = ft_pa(sta, stb);
+		rc = ft_pa(sta, stb, 1);
 	}
 	else if (instr == I_RR)
-		ft_rr(sta, stb);
+		ft_rr(sta, stb, 1);
 	else if (instr == I_RRR)
-		ft_rrr(sta, stb);
+		ft_rrr(sta, stb, 1);
 	else if (instr == I_SS)
-		ft_ss(sta, stb);
+		ft_ss(sta, stb, 1);
 	return (rc);
 }
 
