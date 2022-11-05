@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:48:28 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 13:54:11 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:51:28 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_fill_a(t_array *sta, char *argv[], int argc)
 		i = 0;
 		while (args[i] != NULL)
 			i++;
+		if (i == 0)
+			rc = 1;
 		while (i > 0)
 		{
 			if (ft_check_and_push(&args[i - 1], sta) != 0)

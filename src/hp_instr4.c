@@ -6,27 +6,11 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:59:19 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 13:57:20 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 17:42:49 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_is_repeated(int val, t_array *st)
-{
-	size_t	i;
-	int		*arr;
-
-	i = 0;
-	arr = st->arr;
-	while (i < st->top)
-	{
-		if (arr[i] == val)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	ft_count_digs(int num)
 {
@@ -43,11 +27,6 @@ int	ft_count_digs(int num)
 		i++;
 	}
 	return (i);
-}
-
-void	ft_error(void)
-{
-	ft_putstr_fd("Error!\n", 2);
 }
 
 char	ft_dig_at(int idx, int num)
@@ -79,16 +58,7 @@ char	ft_dig_at(int idx, int num)
 	return (res);
 }
 
-int	init_stacks(int argc, t_array *sta, t_array *stb)
+void	ft_error(void)
 {
-	if (argc == 1)
-		return (1);
-	if (ft_init_arr(sta, 100, sizeof(int)) != 0)
-		return (1);
-	if (ft_init_arr(stb, 100, sizeof(int)) != 0)
-	{
-		ft_arr_free(sta);
-		return (1);
-	}
-	return (0);
+	ft_putstr_fd("Error\n", 2);
 }

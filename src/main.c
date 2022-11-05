@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 13:55:15 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:42:25 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ int	main(int argc, char *argv[])
 {
 	t_array	sta;
 	t_array	stb;
+	int		rc;
 
-	if (init_stacks(argc, &sta, &stb) != 0)
-		return (1);
-	if (ft_fill_a(&sta, argv, argc) != 0)
+	rc = 0;
+	if (ft_init_stacks(argc, &sta, &stb) != 0)
+		rc = 1;
+	if (rc == 0 && ft_fill_a(&sta, argv, argc) != 0)
 	{
 		ft_error();
-		ft_arr_free(&stb);
-		return (1);
+		rc = 1;
 	}
-	ft_push_swap(&sta, &stb);
+	if (rc == 0 && sta.top > 1)
+		ft_push_swap(&sta, &stb);
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
+	return (rc);
 }

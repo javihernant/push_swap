@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 20:04:58 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 12:56:09 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 17:42:44 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,73 +26,68 @@ void	ft_print_stack(t_array *st)
 	}
 }
 
-static int	ft_exec_b(int instr, t_array *stb)
+void	ft_2dfree(char **strs)
 {
-	int	rc;
+	char	**next;
+	char	**aux;
 
-	rc = 0;
-	if (instr == I_SB)
-		ft_sb(stb, 1);
-	else if (instr == I_RB)
-		ft_rb(stb, 1);
-	else if (instr == I_RRB)
-		ft_rrb(stb, 1);
-	return (rc);
-}
-
-static int	ft_exec_a(int instr, t_array *sta)
-{
-	int	rc;
-
-	rc = 0;
-	if (instr == I_SA)
-		ft_sa(sta, 1);
-	else if (instr == I_RA)
-		ft_ra(sta, 1);
-	else if (instr == I_RRA)
-		ft_rra(sta, 1);
-	return (rc);
-}
-
-static int	ft_exec_ab(int instr, t_array *sta, t_array *stb)
-{
-	int	rc;
-
-	rc = 0;
-	if (instr == I_PB)
+	aux = strs;
+	while (*aux != NULL)
 	{
-		rc = ft_pb(stb, sta, 1);
+		next = aux + 1;
+		free(*aux);
+		aux = next;
 	}
-	if (instr == I_PA)
+	free(strs);
+}
+
+size_t	ft_count_sorted(t_array *st)
+{
+	size_t	i;
+	int		tmp;
+	int		*arr;
+
+	arr = st->arr;
+	if (st->top == 0)
+		return (0);
+	tmp = arr[0];
+	i = 1;
+	while (i < st->top)
 	{
-		rc = ft_pa(sta, stb, 1);
+		if (arr[i] > tmp)
+			break ;
+		tmp = arr[i];
+		i++;
 	}
-	else if (instr == I_RR)
-		ft_rr(sta, stb, 1);
-	else if (instr == I_RRR)
-		ft_rrr(sta, stb, 1);
-	else if (instr == I_SS)
-		ft_ss(sta, stb, 1);
+	return (i);
+}
+
+int	ft_init_stacks(int argc, t_array *sta, t_array *stb)
+{
+	int	rc;
+
+	rc = 0;
+	if (argc == 1)
+		rc = 1;
+	if (ft_init_arr(sta, 100, sizeof(int)) != 0)
+		rc = 1;
+	if (ft_init_arr(stb, 100, sizeof(int)) != 0)
+		rc = 1;
 	return (rc);
 }
 
-int	ft_exec_all(int *exec, t_array *sta, t_array *stb)
+int	ft_is_repeated(int val, t_array *st)
 {
-	int	instr;
+	size_t	i;
+	int		*arr;
 
-	instr = 0;
-	while (instr < NUM_INSTR)
+	i = 0;
+	arr = st->arr;
+	while (i < st->top)
 	{
-		while (exec[instr]--)
-		{
-			if (sta != NULL && ft_exec_a(instr, sta) != 0)
-				return (1);
-			if (stb != NULL && ft_exec_b(instr, stb) != 0)
-				return (1);
-			if (sta != NULL && stb != NULL && ft_exec_ab(instr, sta, stb) != 0)
-				return (1);
-		}
-		instr++;
+		if (arr[i] == val)
+			return (1);
+		i++;
 	}
 	return (0);
 }

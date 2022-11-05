@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:02:31 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/03 19:49:14 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:36:12 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_contains_nondigit(char *str)
 {
 	int	i;
 
+	if (str[0] == '\0')
+		return (1);
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -27,17 +29,19 @@ static int	ft_contains_nondigit(char *str)
 	return (0);
 }
 
-static int	ft_contains_zeros_begining(char *str)
+/* If str contains a number with multiple zeros, it removes them all if
+ * number > 0. If number == 0, leaves only one */
+static void	ft_advance_zeros(char **str)
 {
-	int	i;
+	int		c;
 
-	i = 0;
-	while (str[i] == '0')
-		i++;
-	if (i > 1)
-		return (1);
-	else
-		return (0);
+	c = 0;
+	while ((*str)[c] == '0')
+		c++;
+	if (!ft_isdigit((*str)[c]))
+		c -= 1;
+	if (c > 0)
+		*str += c;
 }
 
 static int	ft_is_gt_max(char *str, int max)
@@ -84,8 +88,7 @@ int	ft_checkarg(char *str, t_array *sta)
 	int	sig;
 
 	ft_advance_sig(&str, &sig);
-	if (ft_contains_zeros_begining(str))
-		return (1);
+	ft_advance_zeros(&str);
 	if (ft_contains_nondigit(str))
 		return (1);
 	if (!sig && ft_is_gt_max(str, INT_MAX))

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/04 13:56:28 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:31:03 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int		ft_sort_a_final(t_array *sta);
 void	ft_print_stack(t_array *st);
 void	ft_init_instrs(int *instrs);
 int		ft_exec_all(int *exec, t_array *sta, t_array *stb);
+int		ft_exec_ab(int instr, t_array *sta, t_array *stb, int print);
+int		ft_exec_a(int instr, t_array *sta, int print);
+int		ft_exec_b(int instr, t_array *stb, int print);
 void	ft_show_stacks(t_array *sta, t_array *stb);
 int		ft_is_above(size_t i, size_t len);
 int		ft_find_min(t_array *arr);
@@ -50,7 +53,8 @@ int		ft_count_digs(int num);
 void	ft_2dfree(char **strs);
 int		ft_checkarg(char *str, t_array *sta);
 void	ft_error(void);
-int		init_stacks(int argc, t_array *sta, t_array *stb);
+int		ft_init_stacks(int argc, t_array *sta, t_array *stb);
+size_t	ft_count_sorted(t_array *st);
 int		ft_pb(t_array *stb, t_array *sta, int print);
 int		ft_pa(t_array *sta, t_array *stb, int print);
 int		ft_sa(t_array *sta, int print);
