@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 17:37:48 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/05 20:30:32 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:27:15 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@ static void	ft_save_if_better(int *exec, int *exec_tmp)
 	}
 }
 
+static void	ft_copy_instrs(int *dst, int *src)
+{
+	int	i;
+
+	i = 0;
+	while (i < NUM_INSTR)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+}
+
 int	ft_push_optimal_a(t_array *sta, t_array *stb)
 {
 	size_t	i;
@@ -51,6 +63,7 @@ int	ft_push_optimal_a(t_array *sta, t_array *stb)
 	if (stb->top == 0)
 		return (0);
 	ft_calc_instrs(sta, stb, 0, exec);
+	ft_copy_instrs(exec_tmp, exec);
 	i = 1;
 	while (i < stb->top)
 	{

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 19:32:18 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/05 13:42:25 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:05:56 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 		rc = 1;
 	}
 	if (rc == 0 && sta.top > 1)
-		ft_push_swap(&sta, &stb);
+		rc = ft_push_swap(&sta, &stb);
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
 	return (rc);
