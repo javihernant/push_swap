@@ -39,6 +39,7 @@ OBJ=$(SRC:.c=.o)
 IFLAGS=-I./libft/include -I./include
 LFLAGS=-L./libft
 LIBS=-lft
+CHECKER=checker
 DBG=
 CFLAGS=-Wall -Wextra -Werror
 CC=gcc
@@ -54,7 +55,9 @@ $(NAME): $(LIBFT) $(OBJ)
 $(LIBFT):
 	$(MAKE) -C ./libft
 
-bonus: $(LIBFT) $(CHECKER_OBJ)
+bonus: $(CHECKER)
+	
+$(CHECKER): $(LIBFT) $(CHECKER_OBJ)
 	$(CC) $(CFLAGS) $(LFLAGS) $(CHECKER_OBJ) -o checker $(LIBS) $(DBG)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/08 18:37:40 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:48:11 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	ft_fetch_and_exec(t_array *sta, t_array *stb)
 	int		rc;
 
 	line = get_next_line(0);
+	if (!line)
+		return (2);
 	while (line)
 	{
 		rc = 0;
@@ -78,11 +80,12 @@ int	main(int argc, char *argv[])
 	if (rc == 0 && ft_fill_a(&sta, argv, argc) != 0)
 	{
 		ft_error();
-		rc = 2;
+		rc = 3;
 	}
-	if (rc == 0 && ft_fetch_and_exec(&sta, &stb) != 0)
-		rc = 1;
-	if (rc == 0 && ft_count_sorted(&sta) == sta.top && stb.top == 0)
+	if (rc == 0)
+		rc = ft_fetch_and_exec(&sta, &stb);
+	if ((rc == 0 || rc == 2)
+		&& ft_count_sorted(&sta) == sta.top && stb.top == 0)
 		ft_printf("OK\n");
 	else if (rc == 1)
 		ft_printf("KO\n");
