@@ -39,7 +39,7 @@ OBJ=$(SRC:.c=.o)
 IFLAGS=-I./libft/include -I./include
 LFLAGS=-L./libft
 LIBS=-lft
-DBG=-g
+DBG=
 CFLAGS=-Wall -Wextra -Werror
 CC=gcc
 

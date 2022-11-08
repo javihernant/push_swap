@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: jahernan <jahernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/05 20:22:24 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:18:29 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ static int	ft_fetch_and_exec(t_array *sta, t_array *stb)
 		rc = 0;
 		instr = ft_fetch(line);
 		if (instr == -1)
-		{
-			ft_printf("HELLO!:%s\n", line);
 			rc = 1;
-		}
 		if (rc == 0 && ft_exec_a(instr, sta, 0) != 0)
 			rc = 1;
 		if (rc == 0 && ft_exec_b(instr, stb, 0) != 0)
@@ -85,10 +82,7 @@ int	main(int argc, char *argv[])
 	if (rc == 0 && ft_count_sorted(&sta) == sta.top)
 		ft_printf("OK\n");
 	else
-	{
-		ft_printf("Sorted: %d, Total: %d", ft_count_sorted(&sta), sta.top);
 		ft_printf("KO\n");
-	}
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
 	return (rc);
