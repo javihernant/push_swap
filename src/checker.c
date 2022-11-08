@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/08 18:18:29 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:37:40 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,15 @@ int	main(int argc, char *argv[])
 	if (ft_init_stacks(argc, &sta, &stb) != 0)
 		rc = 1;
 	if (rc == 0 && ft_fill_a(&sta, argv, argc) != 0)
-		rc = 1;
+	{
+		ft_error();
+		rc = 2;
+	}
 	if (rc == 0 && ft_fetch_and_exec(&sta, &stb) != 0)
 		rc = 1;
-	if (rc == 0 && ft_count_sorted(&sta) == sta.top)
+	if (rc == 0 && ft_count_sorted(&sta) == sta.top && stb.top == 0)
 		ft_printf("OK\n");
-	else
+	else if (rc == 1)
 		ft_printf("KO\n");
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
