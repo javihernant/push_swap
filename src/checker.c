@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:02:51 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/08 20:48:11 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:39:53 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static int	ft_fetch_and_exec(t_array *sta, t_array *stb)
 	int		instr;
 	int		rc;
 
+	rc = 0;
 	line = get_next_line(0);
 	if (!line)
-		return (2);
+		return (0);
 	while (line)
 	{
-		rc = 0;
 		instr = ft_fetch(line);
 		if (instr == -1)
 			rc = 1;
@@ -74,21 +74,24 @@ int	main(int argc, char *argv[])
 	t_array	stb;
 	int		rc;
 
+	if (argc <= 1)
+		return (0);
 	rc = 0;
 	if (ft_init_stacks(argc, &sta, &stb) != 0)
 		rc = 1;
 	if (rc == 0 && ft_fill_a(&sta, argv, argc) != 0)
-	{
-		ft_error();
-		rc = 3;
-	}
+		rc = 1;
 	if (rc == 0)
 		rc = ft_fetch_and_exec(&sta, &stb);
-	if ((rc == 0 || rc == 2)
-		&& ft_count_sorted(&sta) == sta.top && stb.top == 0)
-		ft_printf("OK\n");
-	else if (rc == 1)
-		ft_printf("KO\n");
+	if (rc == 0)
+	{
+		if (ft_count_sorted(&sta) == sta.top && stb.top == 0)
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
+	}
+	else
+		ft_error();
 	ft_arr_free(&sta);
 	ft_arr_free(&stb);
 	return (rc);
