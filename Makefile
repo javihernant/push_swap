@@ -40,7 +40,7 @@ IFLAGS=-I./libft/include -I./include
 LFLAGS=-L./libft
 LIBS=-lft
 CHECKER=checker
-DBG=
+DBG=-g
 CFLAGS=-Wall -Wextra -Werror
 CC=gcc
 
@@ -71,4 +71,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re 
+.PHONY: all bonus libft clean fclean re 

@@ -6,7 +6,7 @@
 /*   By: jahernan <jahernan@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 13:48:42 by jahernan          #+#    #+#             */
-/*   Updated: 2022/11/05 20:41:03 by jahernan         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:50:40 by jahernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ int		ft_strcmp(char *s1, char *s2);
 void	ft_strrev(char *str);
 char	*get_next_line(int fd);
 int		ft_printf(const char *str, ...);
+void	ft_int_sort(int *arr, size_t n);
 #endif

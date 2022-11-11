@@ -6,7 +6,7 @@
 #    By: jahernan <jahernan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 17:18:21 by jahernan          #+#    #+#              #
-#    Updated: 2022/11/08 18:03:44 by jahernan         ###   ########.fr        #
+#    Updated: 2022/11/11 15:51:22 by jahernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ BONUS_SRC := ft_lstnew_bonus.c \
 			ft_arr_free.c \
 			ft_strrev.c \
 			ft_strcmp.c \
-			ft_realloc.c
+			ft_realloc.c \
+			ft_int_sort.c
 
 BONUS_SRC := $(addprefix src/,$(BONUS_SRC))
 
