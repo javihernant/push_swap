@@ -36,13 +36,11 @@ int	ft_push_all_b(t_array *stb, t_array *sta)
 	size_t	c;
 	int		mid;
 	int		el;
-	int		*arr;
 
 	if (sta->top > 150)
 		mid = ft_middle_elem(sta);
 	if (sta->top <= 3)
 		return (0);
-	arr = sta->arr;
 	keep = 3;
 	c = ft_count_sorted(sta);
 	if (c > keep)
